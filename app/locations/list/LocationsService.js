@@ -16,12 +16,10 @@ module.exports = function($q, $http) {
 
   this.getCurrentLocation = function(id) {
       if (!angular.equals(self.locations, {})) {
-        console.log('offline', self.locations);
         return $q.when(self.locations[id]);
         
       } else {
         return self.getLocations().then(function(response) {
-            console.log('online', self.locations);
             return $q.when(response[id]);
         });
       } 

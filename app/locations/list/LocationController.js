@@ -8,9 +8,7 @@ module.exports = function($q, LocationsService, UsersService, TimePunchesService
     self.currentLocation = {}
 
     var getUsers = function() {
-        console.log(self.currentLocation);
-        UsersService.getUsers(self.currentLocation.id).then(function(response) {
-            console.log(response);
+        return UsersService.getUsers(self.currentLocation.id).then(function(response) {
             self.users = response;
             return $q.when(self.users);
         });
@@ -20,23 +18,16 @@ module.exports = function($q, LocationsService, UsersService, TimePunchesService
         var locationId = '25753';
 
         return LocationsService.getCurrentLocation(locationId).then(function(response) {
-            console.log(response);
             self.currentLocation = response;
             return $q.when(self.currentLocation);
         });
     };
 
-    self.getUsers = function() {
-        UsersService.getUsers().then(function(response) {
-            console.log(response);
-            self.users = response;
-            return $q.when(self.users);
-        });
-    };
-
     getCurentLocation().then(function() {
-        getUsers();
-    });
-    
-  
+        getUsers().then(function() {
+            UsersService.getUserEarnings().then(function(response) {
+                self.users = response;
+            });
+        });
+    });  
 };
