@@ -1,5 +1,6 @@
-module.exports = function() {
+module.exports = function(LocationsService, UsersService, TimePunchesService) {
 
     'ngInject';
+
   
-  };
+};
