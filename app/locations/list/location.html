@@ -43,9 +43,9 @@
                   <td md-cell><img class="avatar-photo" src="{{user.photo}}" /></td>
                   <td md-cell>{{user.firstName}}</td>
                   <td md-cell>{{user.lastName}}</td>
-                  <td md-cell>{{user.totalOvertimeHours || "-"}}</td>
-                  <td md-cell>{{user.totalWorkingHours || "-"}}</td>
-                  <td md-cell>{{user.totalOvertimeHours + user.totalWorkingHours || "-"}}</td>
+                  <td md-cell>{{user.totalOvertimeHours | number: 2}}</td>
+                  <td md-cell>{{user.totalWorkingHours | number: 2}}</td>
+                  <td md-cell>{{user.totalOvertimeHours + user.totalWorkingHours | number: 2}}</td>
                   <td md-cell>{{user.totalPaidOvertimeHours | currency}}</td>
                   <td md-cell>{{user.totalPaidWorkingHours | currency}}</td>
                   <td md-cell>{{user.totalPaidOvertimeHours + user.totalPaidWorkingHours | currency}}</td>
