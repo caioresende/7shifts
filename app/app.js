@@ -6,6 +6,8 @@ angular.module('TimePunches', [
   require('angular-messages'),
   require('angular-material'),
   require('@uirouter/angularjs').default,
+  require('./core'),
+  require('./locations')
 ])
 
 .config(require('./routes'))
