@@ -1,0 +1,23 @@
+{
+  "name": "7shifts",
+  "version": "1.0.0",
+  "description": "This project shows a summary of a certain location and its employee's worked hours and earnings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caioresende/7shifts.git"
+  },
+  "keywords": [
+    "angularjs",
+    "nodejs"
+  ],
+  "author": "Caio Resende",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caioresende/7shifts/issues"
+  },
+  "homepage": "https://github.com/caioresende/7shifts#readme"
+}
