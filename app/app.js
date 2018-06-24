@@ -7,7 +7,10 @@ angular.module('TimePunches', [
   require('angular-material'),
   require('@uirouter/angularjs').default,
   require('./core'),
-  require('./locations')
+  require('./locations'),
+  require('./time-punches'),
+  require('./users')
 ])
 
 .config(require('./routes'))
+.config(require('./config'));
