@@ -1,8 +1,8 @@
-var moduleName = 'TinyCompany.Companies.List';
+var moduleName = 'TimePunches.Locations';
 
 angular
-  .module(moduleName, [])
-  .controller('LocationController', require('./LocationController'))
-  .service('LocationsService', require('./LocationsService'));
+  .module(moduleName, [
+    require('./list')
+  ]);
 
   module.exports = moduleName;

@@ -1,8 +1,8 @@
 var moduleName = 'TimePunches.Locations.List';
 
 angular
-  .module(moduleName, [
-    require('./list')
-  ]);
+  .module(moduleName, [])
+  .controller('LocationController', require('./LocationController'))
+  .service('LocationsService', require('./LocationsService'));
 
   module.exports = moduleName;
