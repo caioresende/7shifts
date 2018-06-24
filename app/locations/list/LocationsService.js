@@ -16,10 +16,12 @@ module.exports = function($q, $http) {
 
   this.getCurrentLocation = function(id) {
       if (!angular.equals(self.locations, {})) {
-        return $q.when(self.locations[id]);
+        self.currentLocation = self.locations[id];
+        return $q.when(self.currentLocation);
         
       } else {
         return self.getLocations().then(function(response) {
+            self.currentLocation = self.locations[id];
             return $q.when(response[id]);
         });
       } 

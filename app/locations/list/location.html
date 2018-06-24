@@ -19,17 +19,7 @@
                             <p>Daily Overtime Multiplier</p>
                         </div>
                     </md-list-item>
-                    <md-list-item class="md-2-line">
-                            <md-icon class="md-avatar-icon">event_note</md-icon>
-                            <div class="md-list-item-text">
-                                <h3>{{location.currentLocation.labourSettings.weeklyOvertimeMultiplier}} times</h3>
-                                <p>Weekly Overtime Multiplier</p>
-                            </div>
-                        </md-list-item>
                 </md-list>
-            </md-card>
-            <md-card>
-                graphic chart
             </md-card>
     </md-content>
     <md-card flex>
@@ -40,11 +30,11 @@
                   <th md-column><span>Avatar</span></th>
                   <th md-column><span>First Name</span></th>
                   <th md-column><span>Last Name</span></th>
-                  <th md-column md-numeric><span>Daily Overtime</span></th>
-                  <th md-column md-numeric><span>Weekly Overtime</span></th>
-                  <th md-column md-numeric><span>Overtime Method</span></th>
+                  <th md-column md-numeric><span>Overtime Hours</span></th>
+                  <th md-column md-numeric><span>Working Hours</span></th>
                   <th md-column md-numeric><span>Total Hours</span></th>
-                  <th md-column md-numeric><span>Hourly Wage</span></th>
+                  <th md-column md-numeric><span>Paid Hours</span></th>
+                  <th md-column md-numeric><span>Paid Overtime</span></th>
                   <th md-column md-numeric><span>Total Earned</span></th>
                 </tr>
               </thead>
@@ -53,12 +43,12 @@
                   <td md-cell><img class="avatar-photo" src="{{user.photo}}" /></td>
                   <td md-cell>{{user.firstName}}</td>
                   <td md-cell>{{user.lastName}}</td>
-                  <td md-cell>{{user.dailyOvertime || "-"}}</td>
-                  <td md-cell>{{user.weeklyOvertime || "-"}}</td>
-                  <td md-cell>{{user.OvertimeMethod || "-"}}</td>
-                  <td md-cell>{{user.totalHours || "-"}}</td>
-                  <td md-cell>{{user.averageHourlyWage || "-"}}</td>
-                  <td md-cell>{{user.total || "-"}}</td>
+                  <td md-cell>{{user.totalOvertimeHours || "-"}}</td>
+                  <td md-cell>{{user.totalWorkingHours || "-"}}</td>
+                  <td md-cell>{{user.totalOvertimeHours + user.totalWorkingHours || "-"}}</td>
+                  <td md-cell>{{user.totalPaidOvertimeHours | currency}}</td>
+                  <td md-cell>{{user.totalPaidWorkingHours | currency}}</td>
+                  <td md-cell>{{user.totalPaidOvertimeHours + user.totalPaidWorkingHours | currency}}</td>
                 </tr>
               </tbody>
             </table>
