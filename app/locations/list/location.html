@@ -1,19 +1,64 @@
-<md-content class="md-margin">
-    <md-card>
+<md-content layout="row" layout-align="start start">
+    <md-content layout="column" flex="30">
+            <md-card>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.673939803577!2d-118.24587358405033!3d34.052234180606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzA4LjAiTiAxMTjCsDE0JzM3LjMiVw!5e0!3m2!1sen!2sbr!4v1529856565935" flex frameborder="0" style="border:0" allowfullscreen></iframe>
+                <md-list>
+                    <md-list-item class="md-2-line">
+                        <md-icon class="md-avatar-icon">place</md-icon>
+                        <div class="md-list-item-text">
+                            <h3>{{location.currentLocation.address}}</h3>
+                            <p>{{location.currentLocation.city}}</p>
+                        </div>
+                    </md-list-item>
+                    <md-divider ></md-divider>
+                    <md-subheader class="md-no-sticky">Labour Settings</md-subheader>
+                    <md-list-item class="md-2-line">
+                        <md-icon class="md-avatar-icon">today</md-icon>
+                        <div class="md-list-item-text">
+                            <h3>{{location.currentLocation.labourSettings.dailyOvertimeMultiplier}} times</h3>
+                            <p>Daily Overtime Multiplier</p>
+                        </div>
+                    </md-list-item>
+                    <md-list-item class="md-2-line">
+                            <md-icon class="md-avatar-icon">event_note</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>{{location.currentLocation.labourSettings.weeklyOvertimeMultiplier}} times</h3>
+                                <p>Weekly Overtime Multiplier</p>
+                            </div>
+                        </md-list-item>
+                </md-list>
+            </md-card>
+            <md-card>
+                graphic chart
+            </md-card>
+    </md-content>
+    <md-card flex>
         <md-table-container>
-            <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-              <thead md-head md-order="location.query.order" md-on-reorder="location.getUsers">
+            <table md-table md-row-select multiple ng-model="selected" md-progress="location.getUsers">
+              <thead md-head>
                 <tr md-row>
-                  <th md-column md-order-by="nameToLower"><span>First Name</span></th>
-                  <th md-column md-order-by="nameToLower"><span>Last Name</span></th>
-                  <th md-column md-numeric md-order-by="w]hourlyWage"><span>Hourly Wage</span></th>
+                  <th md-column><span>Avatar</span></th>
+                  <th md-column><span>First Name</span></th>
+                  <th md-column><span>Last Name</span></th>
+                  <th md-column md-numeric><span>Daily Overtime</span></th>
+                  <th md-column md-numeric><span>Weekly Overtime</span></th>
+                  <th md-column md-numeric><span>Overtime Method</span></th>
+                  <th md-column md-numeric><span>Total Hours</span></th>
+                  <th md-column md-numeric><span>Hourly Wage</span></th>
+                  <th md-column md-numeric><span>Total Earned</span></th>
                 </tr>
               </thead>
               <tbody md-body>
-                <tr md-row ng-repeat="user in location.users">
+                <tr md-row ng-repeat="user in location.users track by user.id">
+                  <td md-cell><img class="avatar-photo" src="{{user.photo}}" /></td>
                   <td md-cell>{{user.firstName}}</td>
                   <td md-cell>{{user.lastName}}</td>
-                  <td md-cell>{{user.hourlyWage}}</td>
+                  <td md-cell>{{user.dailyOvertime || "-"}}</td>
+                  <td md-cell>{{user.weeklyOvertime || "-"}}</td>
+                  <td md-cell>{{user.OvertimeMethod || "-"}}</td>
+                  <td md-cell>{{user.totalHours || "-"}}</td>
+                  <td md-cell>{{user.hourlyWage || "-"}}</td>
+                  <td md-cell>{{user.total || "-"}}</td>
                 </tr>
               </tbody>
             </table>
