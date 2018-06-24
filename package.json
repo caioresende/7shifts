@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/caioresende/7shifts/issues"
   },
-  "homepage": "https://github.com/caioresende/7shifts#readme"
+  "homepage": "https://github.com/caioresende/7shifts#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.18",
+    "angular": "1.6.5",
+    "angular-animate": "1.6.5",
+    "angular-aria": "1.6.5",
+    "angular-material": "^1.1.9",
+    "angular-messages": "1.6.5"
+  }
 }
