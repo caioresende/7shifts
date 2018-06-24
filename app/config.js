@@ -4,8 +4,8 @@ module.exports = function($mdThemingProvider) {
   
     $mdThemingProvider
       .theme('default')
-      .primaryPalette('indigo')
-      .accentPalette('amber');
+      .primaryPalette('orange')
+      .accentPalette('blue-grey');
   
     $mdThemingProvider.alwaysWatchTheme(true);
 
