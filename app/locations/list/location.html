@@ -1,1 +1,22 @@
-hello location
+<md-content class="md-margin">
+    <md-card>
+        <md-table-container>
+            <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+              <thead md-head md-order="location.query.order" md-on-reorder="location.getUsers">
+                <tr md-row>
+                  <th md-column md-order-by="nameToLower"><span>First Name</span></th>
+                  <th md-column md-order-by="nameToLower"><span>Last Name</span></th>
+                  <th md-column md-numeric md-order-by="w]hourlyWage"><span>Hourly Wage</span></th>
+                </tr>
+              </thead>
+              <tbody md-body>
+                <tr md-row ng-repeat="user in location.users">
+                  <td md-cell>{{user.firstName}}</td>
+                  <td md-cell>{{user.lastName}}</td>
+                  <td md-cell>{{user.hourlyWage}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </md-table-container>
+    </md-card>
+</md-content>
