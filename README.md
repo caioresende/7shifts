@@ -1,8 +1,5 @@
 # 7shifts
 This dashoboard shows a table of users with their own working hours. It was built with  angularjs + angular material
-
-# Running the app
-This section does a step by step on how to run the app. There is already a deployed version here: https://comp-manager-caio.herokuapp.com. ***Have fun!***
 ## Local Environment
 To run locally, using gulp and node, follow the steps after opening terminal:
   1. Clone this repository.
