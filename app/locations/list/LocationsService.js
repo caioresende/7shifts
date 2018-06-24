@@ -5,13 +5,25 @@ module.exports = function($q, $http) {
 
   var companyUrl = 'https://shiftstestapi.firebaseio.com/locations.json';
 
-  this.getCompanies = function() {
+  self.locations = {};
+
+  this.getLocations = function() {
     return $http.get(companyUrl).then(function(response) {
-      return $q.when(response);
+        self.locations = response.data;
+        return $q.when(self.locations);
     });
   };
 
-  this.getCompanies().then(function(response) {
-      console.log(response);
-  });
+  this.getCurrentLocation = function(id) {
+      if (!angular.equals(self.locations, {})) {
+        console.log('offline', self.locations);
+        return $q.when(self.locations[id]);
+        
+      } else {
+        return self.getLocations().then(function(response) {
+            console.log('online', self.locations);
+            return $q.when(response[id]);
+        });
+      } 
+  };
 };
